@@ -35,4 +35,12 @@ public class LMS {
         book.displayBookDetails();
     }
 
+    public int getTotalUsers() {
+        return registeredUsers.size();
+    }
+
+    public int getTotalBooks() {
+        return bookInventory.size();
+    }
+
 }

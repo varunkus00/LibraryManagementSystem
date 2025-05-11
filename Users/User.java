@@ -18,6 +18,11 @@ public abstract class User {
     }
 
     //TO-DO : Implement Copy Constructor
+    public User(User u) {
+        this.userId = String.valueOf(generateUniqueId());
+        this.name = u.name;
+        this.contactInfo = u.contactInfo;
+    }
 
     private final int generateUniqueId() {
         uniqueUserId++;
