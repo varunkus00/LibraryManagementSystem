@@ -2,9 +2,10 @@ package Books;
 
 public class TextBook extends Book {
 
+    private static final long serialVersionUID = 1L;
     private static int uniqueBookId;
     private final int bookId;
-    private String subject;
+    protected String subject;
     private String bookType;
 
     public TextBook(String isbn, String title, String author, String subject, String bookType) {
@@ -20,7 +21,7 @@ public class TextBook extends Book {
     }
 
     public void displayBookDetails() {
-        System.out.println(" TEXTBOOK " + " ISBN : " + getIsbn() + " TITLE : " + getTitle() + " AUTHOR : " + getAuthor() + " SUBJECT : " + subject);
+        System.out.println(" TEXTBOOK =>" + " ISBN : " + getIsbn() + " TITLE : " + getTitle() + " AUTHOR : " + getAuthor() + " SUBJECT : " + subject);
     }
 
     public String getBookType(TextBook t) {

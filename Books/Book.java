@@ -4,6 +4,7 @@ import Users.User;
 
 public abstract class Book implements Lendable {
 
+    private static final long serialVersionUID = 1L;
     private String isbn;
     private String title;
     private String author;
@@ -26,8 +27,19 @@ public abstract class Book implements Lendable {
     }
     public void returnBook(User user) {
         user.decrementBorrowedBooksCount();
-        isAvailable = false;
+        isAvailable = true;
     }
+
+    public String getFormattedRow(int index) {
+        String type = this instanceof TextBook ? "TEXTBOOK" : "NOVELBOOK";
+        String genreOrSubject = this instanceof TextBook ?
+                ((TextBook) this).subject :
+                ((NovelBook) this).genre;
+
+        return String.format("| %-2d | %-9s | %-6s | %-40s | %-18s | %-18s |",
+                index, type, getIsbn(), getTitle(), getAuthor(), genreOrSubject);
+    }
+
     public boolean isAvailable() {
         return isAvailable;
     }
@@ -45,4 +57,5 @@ public abstract class Book implements Lendable {
     public String getAuthor() {
         return author;
     }
+
 }
